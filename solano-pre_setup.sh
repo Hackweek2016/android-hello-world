@@ -7,7 +7,7 @@ if ! test -d $ANDROID_HOME; then
   (cd ~ && curl http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz | tar zxv)
 
   # Set the minimal list of packages required
-  packages="platform-tools,android-22,build-tools-22.0.1,extra"  
+  packages="platform-tools,android-23,build-tools-23.0.1,extra"  
 
   expect -c "
   set timeout -1 ;
