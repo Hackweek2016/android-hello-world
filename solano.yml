@@ -1,0 +1,26 @@
+# Solano Labs example Github Android App
+
+hooks:
+  pre_setup: export ANDROID_HOME=$HOME/android-sdk-linux && ./solano-pre_setup.sh
+
+cache:
+  key_paths:
+    - ./solano-pre_setup.sh
+    - build.gradle
+  save_paths:
+    - .gradle
+    - HOME/android-sdk-linux
+    - HOME/.gradle
+
+java:
+  java_version: java-7-openjdk
+
+# timeout_hook values must be long enough for the initial android-sdk and gradle installs. 
+# Subsequent Solano sessions will use cached versions.
+timeout_hook: 300
+
+tests: # For faster results, split tests into individual commands to allow them to run in parallel
+  - 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew tasks --all'
+  - 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testDebug'
+  - 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease'
+#  - 'export ANDROID_HOME="$HOME/android-sdk-linux" && ./gradlew build'
