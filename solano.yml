@@ -27,6 +27,6 @@ tests: # For faster results, split tests into individual commands to allow them 
   - type: junit
     command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease'
     report_files:
-      - app/build/test-results/debug/*.xml
+      - app/build/test-results/release/*.xml
 #  - 'export ANDROID_HOME="$HOME/android-sdk-linux" && ./gradlew build'
 
