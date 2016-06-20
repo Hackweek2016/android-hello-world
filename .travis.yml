@@ -33,8 +33,8 @@ script:
 
 #deploy:
 #  provider: s3
-#  access_key_id: "AKIAJE72BZVDJXI7RJLA"
-#  secret_access_key: "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"
+#  access_key_id: 
+#  secret: 
 #  bucket: "hackweek2016"
 #  skip_cleanup: true
 
