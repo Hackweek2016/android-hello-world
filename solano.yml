@@ -20,11 +20,13 @@ java:
 timeout_hook: 300
 
 tests: # For faster results, split tests into individual commands to allow them to run in parallel
-  - 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew tasks --all'
-  - 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testDebug'
-  - 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease'
+  - type: junit
+    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testDebug'
+    report_files:
+      - app/build/test-results/debug/*.xml
+  - type: junit
+    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease'
+    report_files:
+      - app/build/test-results/debug/*.xml
 #  - 'export ANDROID_HOME="$HOME/android-sdk-linux" && ./gradlew build'
 
-collect:
-  repo:                   # Paths are relative to repository
-    - app/build/test-results/*.xml
