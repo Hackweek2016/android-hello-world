@@ -24,3 +24,7 @@ tests: # For faster results, split tests into individual commands to allow them 
   - 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testDebug'
   - 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease'
 #  - 'export ANDROID_HOME="$HOME/android-sdk-linux" && ./gradlew build'
+
+collect:
+  repo:                   # Paths are relative to repository
+    - app/build/test-results/*.xml
