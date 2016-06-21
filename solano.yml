@@ -21,28 +21,11 @@ timeout_hook: 300
 
 tests: # For faster results, split tests into individual commands to allow them to run in parallel
   - type: junit
-    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTest'
+    mode: parallel
+    output: exit-status
+    files:
+      - include: 'app/src/test/**/ExampleUnitTest*.java'
+    command: "export ANDROID_HOME=$HOME/android-sdk-linux && solano-test-runner.sh"
     report_files:
-      - app/build/test-results/release/*.xml
-
-  - type: junit
-    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTestTwo'
-    report_files:
-      - app/build/test-results/release/*.xml
-
-  - type: junit
-    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTestThree'
-    report_files:
-      - app/build/test-results/release/*.xml
-
-  - type: junit
-    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTestFour'
-    report_files:
-      - app/build/test-results/release/*.xml
-
-  - type: junit
-    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTestFive'
-    report_files:
-      - app/build/test-results/release/*.xml
-
+      - "app/build/test-results/release/*.xml"
 #  - 'export ANDROID_HOME="$HOME/android-sdk-linux" && ./gradlew build'
