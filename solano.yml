@@ -15,18 +15,34 @@ cache:
 java:
   java_version: java-7-openjdk
 
-# timeout_hook values must be long enough for the initial android-sdk and gradle installs. 
+# timeout_hook values must be long enough for the initial android-sdk and gradle installs.
 # Subsequent Solano sessions will use cached versions.
 timeout_hook: 300
 
 tests: # For faster results, split tests into individual commands to allow them to run in parallel
   - type: junit
-    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testDebug'
-    report_files:
-      - app/build/test-results/debug/*.xml
-  - type: junit
-    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease'
+    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTest'
     report_files:
       - app/build/test-results/release/*.xml
-#  - 'export ANDROID_HOME="$HOME/android-sdk-linux" && ./gradlew build'
 
+  - type: junit
+    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTestTwo'
+    report_files:
+      - app/build/test-results/release/*.xml
+
+  - type: junit
+    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTestThree'
+    report_files:
+      - app/build/test-results/release/*.xml
+
+  - type: junit
+    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTestFour'
+    report_files:
+      - app/build/test-results/release/*.xml
+
+  - type: junit
+    command: 'export ANDROID_HOME=$HOME/android-sdk-linux && ./gradlew app:testRelease --tests se.paldan.helloworld.ExampleUnitTestFive'
+    report_files:
+      - app/build/test-results/release/*.xml
+
+#  - 'export ANDROID_HOME="$HOME/android-sdk-linux" && ./gradlew build'
