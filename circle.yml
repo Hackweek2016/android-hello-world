@@ -1,10 +1,10 @@
 test:
   override:
-    - ./gradlew test --tests se.paldan.helloworld.ExampleUnitTest
-    - ./gradlew test --tests se.paldan.helloworld.ExampleUnitTestTwo
-    - ./gradlew test --tests se.paldan.helloworld.ExampleUnitTestThree
-    - ./gradlew test --tests se.paldan.helloworld.ExampleUnitTestFour
-    - ./gradlew test --tests se.paldan.helloworld.ExampleUnitTestFive
+    - ./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTest
+    - ./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestTwo
+    - ./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestThree
+    - ./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestFour
+    - ./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestFive
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/app/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
