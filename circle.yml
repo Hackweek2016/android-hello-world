@@ -1,4 +1,10 @@
 test:
+  override:
+    - gradle test --tests se.paldan.helloworld.ExampleUnitTest
+    - gradle test --tests se.paldan.helloworld.ExampleUnitTestTwo
+    - gradle test --tests se.paldan.helloworld.ExampleUnitTestThree
+    - gradle test --tests se.paldan.helloworld.ExampleUnitTestFour
+    - gradle test --tests se.paldan.helloworld.ExampleUnitTestFive
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/app/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
