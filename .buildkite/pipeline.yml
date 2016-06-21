@@ -1,0 +1,11 @@
+steps:
+  - name: Run Tests - Suite 1
+    command: "./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTest"
+  - name: Run Tests - Suite 2
+    command: "./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestTwo"
+  - name: Run Tests - Suite 3
+    command: "./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestThree"
+  - name: Run Tests - Suite 4
+    command: "./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestFour"
+  - name: Run Tests - Suite 5
+    command: "./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestFive"
