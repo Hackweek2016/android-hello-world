@@ -1,4 +1,5 @@
 steps:
+  - command: echo "--- Running Tests"
   - name: Run Tests - Suite 1
     command: "./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTest"
   - name: Run Tests - Suite 2
