@@ -7,6 +7,9 @@ test:
     - ./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestFive
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - mkdir -p $CIRCLE_TEST_REPORTS/coverage/
     - find . -type f -regex ".*/app/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     - ./gradlew assembleRelease
     - find . -type f -regex ".*/app/build/outputs/.*apk" -exec cp {} $CIRCLE_ARTIFACTS \;
+    - ./gradlew app:testDebugUnitTestCoverage
+    - find . -type f -regex ".*/app/build/reports/jacoco/testDebugUnitTestCoverage/html/*" -exec cp {} $CIRCLE_TEST_REPORTS/coverage/ \;
