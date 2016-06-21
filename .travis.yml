@@ -31,13 +31,6 @@ android:
 script:
     - ./gradlew assembleDebug testDebug
 
-#deploy:
-#  provider: s3
-#  access_key_id: 
-#  secret: 
-#  bucket: "hackweek2016"
-#  skip_cleanup: true
-
 addons:
   artifacts:
     debug: true
