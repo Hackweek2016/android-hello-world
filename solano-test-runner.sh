@@ -13,8 +13,7 @@ end.parse!
 
 classes = ARGV.map{|f| File.basename(f).split('.')[0]}
 cmd = "("
-cmd += "cd #{options[:prefix]} && " if options[:prefix]
-cmd += "./gradlew testRelease --tests #{classes.join(",")}"
+cmd += "./gradlew testRelease --tests #{options[:prefix]}.#{classes.join(",")}"
 cmd += ")"
 
 puts cmd
