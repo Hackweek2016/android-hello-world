@@ -1,16 +1,16 @@
 steps:
   - name: Run Tests - Suite 1
     command: "./gradlew testReleaseUnitTest --tests se.paldan.helloworld.ExampleUnitTest"
-    artifact_paths: '**/test-results/**/*.xml'
+    artifact_paths: '**/test-results/**/*.xml;**/reports/tests/*'
   - name: Run Tests - Suite 2
     command: "./gradlew testReleaseUnitTest --tests se.paldan.helloworld.ExampleUnitTestTwo"
-    artifact_paths: '**/test-results/**/*.xml'
+    artifact_paths: '**/test-results/**/*.xml;**/reports/tests/*'
   - name: Run Tests - Suite 3
     command: "./gradlew testReleaseUnitTest --tests se.paldan.helloworld.ExampleUnitTestThree"
-    artifact_paths: '**/test-results/**/*.xml'
+    artifact_paths: '**/test-results/**/*.xml;**/reports/tests/*'
   - name: Run Tests - Suite 4
     command: "./gradlew testReleaseUnitTest --tests se.paldan.helloworld.ExampleUnitTestFour"
-    artifact_paths: '**/test-results/**/*.xml'
+    artifact_paths: '**/test-results/**/*.xml;**/reports/tests/*'
   - name: Run Tests - Suite 5
     command: "./gradlew testReleaseUnitTest --tests se.paldan.helloworld.ExampleUnitTestFive"
-    artifact_paths: '**/test-results/**/*.xml'
+    artifact_paths: '**/test-results/**/*.xml;**/reports/tests/*'
