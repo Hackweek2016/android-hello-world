@@ -1,5 +1,5 @@
 artifact_paths_template: &a_p_t
-  artifact_paths: '**/test-results/**/*.xml;**/reports/tests/**/*'
+  artifact_paths: '**/test-results/**/*.xml'
 
 steps:
   - name: Run Tests - Suite 1
