@@ -1,7 +1,5 @@
 FROM java:7
 
-ENV DEBIAN_FRONTEND noninteractive
-
 # Install dependencies
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
