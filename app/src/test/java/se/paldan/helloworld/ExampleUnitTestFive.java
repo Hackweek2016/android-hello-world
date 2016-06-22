@@ -2995,16 +2995,16 @@ public class ExampleUnitTestFive {
 
     @Test
     public void addition_isCorrectFail1() throws Exception {
-        assertEquals(5, 2 + 2);
+        assertEquals(4, 2 + 2);
     }
 
     @Test
     public void addition_isCorrectFail2() throws Exception {
-        assertEquals(3, 1 + 1);
+        assertEquals(2, 1 + 1);
     }
 
     @Test
     public void addition_isCorrectFail3() throws Exception {
-        assertEquals(8, 2 + 2);
+        assertEquals(4, 2 + 2);
     }
 }
