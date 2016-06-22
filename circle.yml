@@ -18,7 +18,7 @@ test:
     - ./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestThree;
     - ./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestFour;
     - ./gradlew testRelease --tests se.paldan.helloworld.ExampleUnitTestFive;
-    - docker run -d -p 9200:9200 android-hello-world; sleep 10
+    - docker run -d -p 9200:9200 -v $(pwd)/app:/android-hello-world/app android-hello-world ./gradlew clean assembleRelease; sleep 10
     - curl --retry 10 --retry-delay 5 -v http://localhost:9200
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
@@ -26,8 +26,8 @@ test:
     - ./gradlew assembleRelease
     - find . -type f -regex ".*/app/build/outputs/.*apk" -exec cp {} $CIRCLE_ARTIFACTS \;
     - if [[ ! -z $CI_PULL_REQUEST ]] ; then   
-        echo "Generating test coverage report..." &&
-        mkdir -p $CIRCLE_TEST_REPORTS/coverage/ &&
-        ./gradlew app:testDebugUnitTestCoverage &&
-        find . -type f -regex ".*/app/build/reports/jacoco/testDebugUnitTestCoverage/html/*" -exec cp {} $CIRCLE_TEST_REPORTS/coverage/ \
+        echo "Generating test coverage report...";
+        mkdir -p $CIRCLE_TEST_REPORTS/coverage/;
+        ./gradlew app:testDebugUnitTestCoverage;
+        find . -type f -regex ".*/app/build/reports/jacoco/testDebugUnitTestCoverage/html/*" -exec cp {} $CIRCLE_TEST_REPORTS/coverage/;
       fi;
