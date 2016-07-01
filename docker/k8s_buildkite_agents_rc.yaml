@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: buildkite-agents
+spec:
+  replicas: 2
+  selector:
+    app: buildkite-agents
+  template:
+    metadata:
+      annotations:
+        description: https://buildkite.com/kubernetesci
+      labels:
+        app: buildkite-agents
+    spec:
+      containers:
+      - env:
+        - name: BUILDKITE_AGENT_TOKEN
+          value: <your_buildkite_agent_token>
+        image: msufa/buildkite-agent-android-sdk
+        name: buildkite-agents
